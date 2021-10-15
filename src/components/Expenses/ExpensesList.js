@@ -16,6 +16,7 @@ function ExpensesList(props) {
           title={expense.title}
           amount={expense.amount}
           date={expense.date}
+          onDeleteExpense={props.onDeleteExpense}
         />
       ))}
     </ul>

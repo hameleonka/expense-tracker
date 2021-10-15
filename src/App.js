@@ -48,10 +48,18 @@ function App() {
     });
   };
 
+  const deleteExpenseHandler = (expenseTitle) => {
+    setExpenses((prevExpenses) => {
+      return prevExpenses.filter(expense => {
+        return expense.title !== expenseTitle;
+      });
+    });
+  }
+
   return (
     <div className="App">
       <NewExpense onAddExpense={addExpenseHandler} />
-      <Expenses items={expenses} />
+      <Expenses items={expenses} onDeleteExpense={deleteExpenseHandler} />
     </div>
   );
 }
