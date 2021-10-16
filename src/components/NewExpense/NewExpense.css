@@ -2,11 +2,12 @@
   background-color: #a892ee;
   padding: 1rem;
   margin: 2rem auto;
-  width: 50rem;
-  max-width: 95%;
+  width: 95%;
+  max-width: 50rem;
   border-radius: 12px;
   text-align: center;
   box-shadow: 0 1px 8px rgba(0, 0, 0, 0.25);
+  box-sizing: border-box;
 }
 
 .new-expense button {
@@ -17,6 +18,9 @@
   background-color: #40005d;
   color: white;
   border-radius: 12px;
+}
+
+.new-expense button:first-child {
   margin-right: 1rem;
 }
 

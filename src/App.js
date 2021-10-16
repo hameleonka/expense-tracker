@@ -41,11 +41,14 @@ const DUMMY_EXPENSES = [
 
 function App() {
   const [expenses, setExpenses] = useState(DUMMY_EXPENSES);
+  const [filteredYear, setFilteredYear] = useState('2021');
 
   const addExpenseHandler = (expense) => {
+
     setExpenses((prevExpenses) => {
       return [expense, ...prevExpenses];
     });
+    setFilteredYear(expense.date.getFullYear().toString());
   };
 
   const deleteExpenseHandler = (expenseTitle) => {
@@ -56,10 +59,18 @@ function App() {
     });
   }
 
+  const filterChangeHandler = selectedYear => {
+    setFilteredYear(selectedYear);
+  };
+
   return (
     <div className="App">
       <NewExpense onAddExpense={addExpenseHandler} />
-      <Expenses items={expenses} onDeleteExpense={deleteExpenseHandler} />
+      <Expenses
+        items={expenses}
+        onDeleteExpense={deleteExpenseHandler}
+        filteredYear={filteredYear}
+        onChangeFilter={filterChangeHandler} />
     </div>
   );
 }
